@@ -32,3 +32,13 @@ Ocorre quando o CEP é válido e a cidade é encontrada com sucesso.
   "temp_F": 83.3,
   "temp_K": 301.65
 }
+
+## 🚨 Códigos de Retorno (Status Codes)
+
+A API utiliza os padrões de status code do HTTP para indicar o sucesso ou a falha de cada requisição.
+
+| Status | Descrição | Corpo da Resposta (Body) | Quando ocorre? |
+| :--- | :--- | :--- | :--- |
+| **`200 OK`** | Sucesso | `{"temp_C": 28.5, "temp_F": 83.3, "temp_K": 301.65}` | O CEP tem um formato válido e foi localizado com sucesso. |
+| **`422 Unprocessable Entity`** | Erro de Validação | `invalid zipcode` | O CEP informado na URL não possui exatamente 8 dígitos numéricos ou contém letras e caracteres especiais. |
+| **`404 Not Found`** | Não Encontrado | `can not find zipcode` | O CEP possui 8 dígitos, passou na validação, mas não foi encontrado na base de dados de endereços. |
