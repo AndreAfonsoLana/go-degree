@@ -1,0 +1,30 @@
+### Consulta de Clima por CEP (Válido - Exemplo SP)
+GET http://localhost:8080/temperatura?cep=01153000
+Accept: application/json
+
+GET http://go-degree-4lmyzymdma-uc.a.run.app:8080/temperatura?cep=13183310
+Accept: application/json
+
+###
+
+### Consulta de Clima por CEP (Outro Válido - Exemplo RJ)
+GET http://localhost:8080/temperatura?cep=13183310
+Accept: application/json
+
+###
+
+### Consulta com CEP Inválido (menos de 8 dígitos)
+GET http://localhost:8080/temperatura?cep=12345
+Accept: application/json
+
+###
+
+### Consulta com CEP Inválido (mais de 8 dígitos)
+GET http://localhost:8080/temperatura?cep=00000000
+Accept: application/json
+
+###
+
+### Consulta sem enviar o parâmetro CEP
+GET http://localhost:8080/temperatura
+Accept: application/json

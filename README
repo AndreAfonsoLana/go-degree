@@ -1,0 +1,34 @@
+# Go Degree - Consulta de Clima por CEP
+
+Este projeto é uma API RESTful desenvolvida em **Go** que recebe um CEP brasileiro, identifica a cidade correspondente e retorna o clima atual (em graus Celsius, Fahrenheit e Kelvin). A aplicação foi projetada com arquitetura limpa, está containerizada via Docker e foi implantada no **Google Cloud Run**.
+
+> **Nota:** Este projeto integra as APIs públicas do [ViaCEP](https://viacep.com.br/) para resolução de localização e da [WeatherAPI](https://www.weatherapi.com/) para dados meteorológicos.
+
+---
+
+## ☁️ Acesso à API (Produção)
+
+A API está no ar e pode ser testada publicamente.
+
+**URL Base:** `https://go-degree-4lmyzymdma-uc.a.run.app`
+
+---
+
+## 📍 Endpoint Principal
+
+### `GET /temperatura?cep={cep}`
+
+Consulta as temperaturas atuais com base no código postal fornecido.
+
+### Cenários de Uso e Retornos
+
+**1. Sucesso (HTTP 200 OK)**
+Ocorre quando o CEP é válido e a cidade é encontrada com sucesso.
+*   **Requisição:** `GET /temperatura?cep=13183310`
+*   **Resposta:**
+```json
+{
+  "temp_C": 28.5,
+  "temp_F": 83.3,
+  "temp_K": 301.65
+}
