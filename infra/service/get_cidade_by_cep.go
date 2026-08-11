@@ -67,8 +67,8 @@ func (v *CEPClient) GetCidadeByCEP(cep string) <-chan CidadeResult {
 			return
 		}
 
-		if payload.Erro == "true" || payload.Localidade == "" {
-			resultChan <- CidadeResult{Err: fmt.Errorf("não foi possível encontrar esse CEP")}
+		if payload.Localidade == "" {
+			resultChan <- CidadeResult{Err: fmt.Errorf("can not find zipcode")}
 			return
 		}
 

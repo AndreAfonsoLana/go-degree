@@ -23,8 +23,8 @@ func (h *TemperaturaHandler) HandleTemperatura(w netHttp.ResponseWriter, r *netH
 	cep := r.URL.Query().Get("cep")
 
 	if len(cep) != 8 {
-		netHttp.Error(w, "CEP inválido: Precisa de 8 dígitos", netHttp.StatusUnprocessableEntity)
-		w.Write([]byte("invalid zipcode"))
+		netHttp.Error(w, "invalid zipcode", netHttp.StatusUnprocessableEntity)
+		//w.Write([]byte("invalid zipcode3"))
 		return
 	}
 
@@ -33,7 +33,7 @@ func (h *TemperaturaHandler) HandleTemperatura(w netHttp.ResponseWriter, r *netH
 	fmt.Printf("Output: %+v\n", output)
 	if err != nil {
 		netHttp.Error(w, err.Error(), netHttp.StatusNotFound)
-		w.Write([]byte("invalid zipcode"))
+		//w.Write([]byte("can not find zipcode"))
 		return
 	}
 

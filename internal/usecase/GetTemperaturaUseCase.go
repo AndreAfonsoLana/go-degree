@@ -32,12 +32,12 @@ func NewConsultaClimaUseCase(
 func (c *ConsultaClimaUseCase) ConsultarClimaPorCEP(cep string) (dto.GetTemperaturaOutputDTO, error) {
 	fmt.Printf("Cep %v\n", cep)
 	if len(cep) != 8 {
-		return dto.GetTemperaturaOutputDTO{}, errors.New("CEP inválido: Precisa de 8 dígitos")
+		return dto.GetTemperaturaOutputDTO{}, errors.New("invalid zipcode")
 	}
 
 	cidadeResult := <-c.cepProvedor.GetCidadeByCEP(cep)
 	if cidadeResult.Err != nil {
-		return dto.GetTemperaturaOutputDTO{}, errors.New("Erro ao obter cidade pelo CEP: " + cidadeResult.Err.Error())
+		return dto.GetTemperaturaOutputDTO{}, errors.New(cidadeResult.Err.Error())
 	}
 
 	temperaturas := <-c.temperaturaProvedor.GetTemperaturaByCidade(cidadeResult.Cidade)

@@ -6,5 +6,4 @@ type CepResponseDTO struct {
 	Bairro     string `json:"bairro"`
 	Localidade string `json:"localidade"`
 	UF         string `json:"uf"`
-	Erro       string `json:"erro"`
 }
