@@ -33,7 +33,7 @@ func (h *TemperaturaHandler) HandleTemperatura(w netHttp.ResponseWriter, r *netH
 	fmt.Printf("Output: %+v\n", output)
 	if err != nil {
 		netHttp.Error(w, err.Error(), netHttp.StatusNotFound)
-		//w.Write([]byte("can not find zipcode"))
+		//w.Write([]byte("invalid zipcode"))
 		return
 	}
 
